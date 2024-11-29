@@ -1,4 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
+import LayoutMain from '../components/LayoutMain.vue'
+import login from '../components/login.vue'
 import Empleado from '../views/empleado.vue'
 import Asistencia from '../views/asistencia.vue'
 import Contrato from '../views/contrato.vue'
@@ -9,6 +11,20 @@ import TipoPrestacion  from '../views/tipoPrestacion.vue'
 import TipoBeneficio from '../views/tipoBeneficio.vue'
 
 const routes =[
+
+    
+
+    {
+        path:'/',
+        name:'home',
+        component: LayoutMain,
+    },
+
+    {
+        path:'/login',
+        name:'login',
+        component: login,
+    },
 
     {
         path:'/empleados',
