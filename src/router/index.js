@@ -1,18 +1,16 @@
 import { createRouter, createWebHistory } from "vue-router";
 import LayoutMain from '../components/LayoutMain.vue'
-import login from '../components/login.vue'
-import Empleado from '../views/empleado.vue'
-import Asistencia from '../views/asistencia.vue'
-import Contrato from '../views/contrato.vue'
-import Prestacion from '../views/prestacion.vue'
-import Beneficio from '../views/beneficio.vue'
-import TipoContrato  from '../views/tipoContrato.vue'
-import TipoPrestacion  from '../views/tipoPrestacion.vue'
-import TipoBeneficio from '../views/tipoBeneficio.vue'
+
+import Asistencia from '../views/asistencia/asistencia.vue'
+import Empleado from '../views/empleado/empleado.vue'
+import Contrato from '../views/contrato/contrato.vue'
+import Prestacion from '../views/prestacion/prestacion.vue'
+import Beneficio from '../views/beneficio/beneficio.vue'
+import TipoContrato  from '../views/tipoContrato/tipoContrato.vue'
+import TipoPrestacion  from '../views/tipoPrestacion/tipoPrestacion.vue'
+import TipoBeneficio from '../views/tipoBeneficio/tipoBeneficio.vue'
 
 const routes =[
-
-    
 
     {
         path:'/',
@@ -21,36 +19,30 @@ const routes =[
     },
 
     {
-        path:'/login',
-        name:'login',
-        component: login,
-    },
-
-    {
-        path:'/empleados',
+        path:'/empleado',
         name:'empleado',
         component: Empleado,
     },
 
     {
-        path:'/asistencias',
+        path:'/asistencia',
         name:'asistencia',
         component: Asistencia,
     },
     
     {
-        path:'/contratos',
+        path:'/contrato',
         name:'contrato',
         component: Contrato,
     },
 
     {
-        path:'/prestaciones',
+        path:'/prestacion',
         name:'prestacion',
         component: Prestacion,
     },
     {
-        path:'/beneficios',
+        path:'/beneficio',
         name:'beneficio',
         component: Beneficio,
     },
