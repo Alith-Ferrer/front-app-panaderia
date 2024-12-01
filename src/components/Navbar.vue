@@ -9,11 +9,7 @@
     @select="handleSelect"
   >
     <el-menu-item index="0" class="logo">
-      <img
-        src="../../imagenes/image.png"
-        class="logo-img"
-        alt="Element logo"
-      />
+      <img src="../../imagenes/image.png" class="logo-img" alt="Element logo" />
     </el-menu-item>
     <el-sub-menu index="1" class="user-menu">
       <template #title>
