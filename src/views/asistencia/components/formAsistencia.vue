@@ -1,37 +1,89 @@
 <template>
-  <el-card style="max-width: 100%">
-    <el-row>
-      <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-        <h1>Formulario Asistencia</h1>
-        <el-form :model="form" label-width="120px">
-          <el-form-item label="Nombre">
-            <el-input v-model="form.nombre"></el-input>
-          </el-form-item>
-          <el-form-item label="Asistencia">
-            <el-select v-model="form.asistencia" placeholder="Seleccione">
-              <el-option label="Presente" value="Presente"></el-option>
-              <el-option label="Ausente" value="Ausente"></el-option>
-            </el-select>
-          </el-form-item>
-          <el-form-item label="Fecha de Entrada">
-            <el-date-picker v-model="form.fechaEntrada" type="datetime" placeholder="Seleccione la fecha y hora"></el-date-picker>
-          </el-form-item>
-          <el-form-item label="Fecha de Salida">
-            <el-date-picker v-model="form.fechaSalida" type="datetime" placeholder="Seleccione la fecha y hora"></el-date-picker>
-          </el-form-item>
-        </el-form>
-      </el-col>
-    </el-row>
-  </el-card>
+  <el-form ref="formRef" style="max-width: 100%" :model="formulario" :rules="rulesForm" label-width="auto"
+           :size="formSize" status-icon>
+    <el-form-item label="Fecha de Asistencia" prop="Fecha_asistencia">
+      <el-date-picker v-model="formulario.Fecha_asistencia" type="date" placeholder="Seleccione la fecha" />
+    </el-form-item>
+    <el-form-item label="Hora de Entrada" prop="Hora_entrada">
+      <el-time-picker v-model="formulario.Hora_entrada" placeholder="Seleccione la hora" />
+    </el-form-item>
+    <el-form-item label="Hora de Salida" prop="Hora_salida">
+      <el-time-picker v-model="formulario.Hora_salida" placeholder="Seleccione la hora" />
+    </el-form-item>
+    <el-form-item label="Empleado" prop="id_empleado">
+      <el-select v-model="formulario.id_empleado" placeholder="Seleccione un empleado">
+        <el-option v-for="empleado in empleados" :key="empleado.id" :label="empleado.Nombre_empleado" :value="empleado.id" />
+      </el-select>
+    </el-form-item>
+  </el-form>
 </template>
 
 <script setup>
-import { reactive } from 'vue';
+import { onMounted, reactive, ref, watch } from 'vue';
 
-const form = reactive({
-  nombre: '',
-  asistencia: '',
-  fechaEntrada: '',
-  fechaSalida: ''
+const propiedad = defineProps({
+  empleados: {
+    type: Array,
+    required: true,
+  },
+  dataValue: Object,
 });
+
+const formSize = ref('default');
+const formRef = ref();
+const formulario = reactive({
+  Fecha_asistencia: '',
+  Hora_entrada: '',
+  Hora_salida: '',
+  id_empleado: '',
+});
+
+const datosFormulario = () => {
+  formulario.Fecha_asistencia = propiedad.dataValue[0].Fecha_asistencia;
+  formulario.Hora_entrada = propiedad.dataValue[0].Hora_entrada;
+  formulario.Hora_salida = propiedad.dataValue[0].Hora_salida;
+  formulario.id_empleado = propiedad.dataValue[0].id_empleado;
+};
+
+const rulesForm = reactive({
+  Fecha_asistencia: [
+    { required: true, message: 'Por favor seleccione la fecha de asistencia', trigger: 'blur' }
+  ],
+  Hora_entrada: [
+    { required: true, message: 'Por favor seleccione la hora de entrada', trigger: 'blur' }
+  ],
+  Hora_salida: [
+    { required: true, message: 'Por favor seleccione la hora de salida', trigger: 'blur' }
+  ],
+  id_empleado: [
+    { required: true, message: 'Por favor seleccione un empleado', trigger: 'blur' }
+  ],
+});
+
+const limpiarFormulario = () => {
+  formRef.value.resetFields();
+};
+
+const validarFormulario = () => {
+  return new Promise((resolve) => {
+    formRef.value?.validate((valid) => {
+      if (valid) {
+        resolve(true);
+      } else {
+        resolve(false);
+      }
+    });
+  });
+};
+
+watch(
+  () => propiedad.dataValue,
+  (newData) => {
+    datosFormulario();
+  }
+);
+
+defineExpose({ validarFormulario, formulario, limpiarFormulario });
 </script>
+
+<style scoped></style>
