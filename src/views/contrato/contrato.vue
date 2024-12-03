@@ -1,7 +1,7 @@
 <template>
   <LayoutMain>
       <template #slotLayout>
-          <Header :titulo="'Contratos Laborales'" :tituloBoton="'Crear Contrato  +'" :abrir="abrirFormulario" />
+          <Header :titulo="'Contratos Laborales'" :tituloBoton="'Crear Contrato'" :abrir="abrirFormulario" />
 
           <Formulario :titulo="'Gestión de Contratos Laborales'" v-model:is-open="mostrarFormulario" :is-edit="editandoFormulario"
               @save="guardarDatos" @update="actualizarDatos">
@@ -9,7 +9,7 @@
                   <el-row :gutter="20">
                       <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
                           <formContrato v-model:is-open="mostrarFormulario" :is-edit="editandoFormulario" ref="formRef"
-                              :empleados="empleados" :dataValue="datagetDataByid" />
+                              :empleado="empleado" :dataValue="datagetDataByid" />
                       </el-col>
                   </el-row>
               </template>
@@ -49,7 +49,7 @@ const mostrarFormulario = ref(false)
 const editandoFormulario = ref(false)
 const formRef = ref()
 const datagetDataByid = ref()
-const empleados = ref([])
+const empleado = ref([])
 const contratos = ref([])
 
 const abrirFormulario = () => {
@@ -199,12 +199,12 @@ const datosContrato = async () => {
   }
 }
 
-const getEmpleados = async () => {
-  const url = 'http://127.0.0.1:8000/api/empleados/datos'
+const getEmpleado = async () => {
+  const url = 'http://127.0.0.1:8000/api/empleado/getData'
   try {
       axios.get(url)
           .then(function (response) {
-              empleados.value = response.data.result
+              empleado.value = response.data.result
           })
           .catch(function (error) {
               console.log(error);
@@ -215,7 +215,7 @@ const getEmpleados = async () => {
 }
 
 onMounted(() => {
-  getEmpleados()
+  getEmpleado()
   datosContrato()
 })
 </script>

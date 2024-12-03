@@ -5,7 +5,7 @@
       <el-input v-model="formulario.Nombre_empleado" />
     </el-form-item>
     <el-form-item label="Fecha de Ingreso" prop="Fecha_ingreso">
-      <el-date-picker v-model="formulario.Fecha_ingreso" type="date" placeholder="Seleccione la fecha" />
+      <el-date-picker v-model="formulario.Fecha_ingreso" type="date" value-format="YYYY-MM-DD" placeholder="Seleccione la fecha" />
     </el-form-item>
     <el-form-item label="Código del Empleado" prop="Codigo_empleado">
       <el-input v-model="formulario.Codigo_empleado" />

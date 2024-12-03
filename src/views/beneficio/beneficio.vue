@@ -1,7 +1,7 @@
 <template>
   <LayoutMain>
       <template #slotLayout>
-          <Header :titulo="'Beneficios'" :tituloBoton="'Crear Beneficio  +'" :abrir="abrirFormulario" />
+          <Header :titulo="'Beneficios'" :tituloBoton="'Crear Beneficio '" :abrir="abrirFormulario" />
 
           <Formulario :titulo="'Gestión de Beneficios'" v-model:is-open="mostrarFormulario" :is-edit="editandoFormulario"
               @save="guardarDatos" @update="actualizarDatos">

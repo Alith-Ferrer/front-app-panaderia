@@ -8,10 +8,10 @@
       <el-input v-model="formulario.Nombre_prestacion_social" />
     </el-form-item>
     <el-form-item label="Fecha de Inicio" prop="Fecha_inicio_prestacion">
-      <el-date-picker v-model="formulario.Fecha_inicio_prestacion" type="date" placeholder="Seleccione la fecha de inicio" />
+      <el-date-picker v-model="formulario.Fecha_inicio_prestacion" type="date" value-format="YYYY-MM-DD" placeholder="Seleccione la fecha de inicio" />
     </el-form-item>
     <el-form-item label="Fecha de Fin" prop="Fecha_fin_prestacion">
-      <el-date-picker v-model="formulario.Fecha_fin_prestacion" type="date" placeholder="Seleccione la fecha de fin" />
+      <el-date-picker v-model="formulario.Fecha_fin_prestacion" type="date" value-format="YYYY-MM-DD" placeholder="Seleccione la fecha de fin" />
     </el-form-item>
     <el-form-item label="ID Contrato Laboral" prop="id_contrato_laborar">
       <el-select v-model="formulario.id_contrato_laborar" placeholder="Seleccione un contrato">

@@ -2,17 +2,17 @@
   <el-form ref="formRef" style="max-width: 100%" :model="formulario" :rules="rulesForm" label-width="auto"
            :size="formSize" status-icon>
     <el-form-item label="Fecha de Asistencia" prop="Fecha_asistencia">
-      <el-date-picker v-model="formulario.Fecha_asistencia" type="date" placeholder="Seleccione la fecha" />
+      <el-date-picker v-model="formulario.Fecha_asistencia" type="date" value-format="YYYY-MM-DD" placeholder="Seleccione la fecha" />
     </el-form-item>
     <el-form-item label="Hora de Entrada" prop="Hora_entrada">
-      <el-time-picker v-model="formulario.Hora_entrada" placeholder="Seleccione la hora" />
+      <el-time-picker v-model="formulario.Hora_entrada" value-format="hh:mm:ss" placeholder="Seleccione la hora" />
     </el-form-item>
     <el-form-item label="Hora de Salida" prop="Hora_salida">
-      <el-time-picker v-model="formulario.Hora_salida" placeholder="Seleccione la hora" />
+      <el-time-picker v-model="formulario.Hora_salida" value-format="hh:mm:ss" placeholder="Seleccione la hora" />
     </el-form-item>
     <el-form-item label="Empleado" prop="id_empleado">
       <el-select v-model="formulario.id_empleado" placeholder="Seleccione un empleado">
-        <el-option v-for="empleado in empleados" :key="empleado.id" :label="empleado.Nombre_empleado" :value="empleado.id" />
+        <el-option v-for="empleado in empleado" :key="empleado.id" :label="empleado.Nombre_empleado" :value="empleado.id" />
       </el-select>
     </el-form-item>
   </el-form>
@@ -22,7 +22,7 @@
 import { onMounted, reactive, ref, watch } from 'vue';
 
 const propiedad = defineProps({
-  empleados: {
+  empleado: {
     type: Array,
     required: true,
   },

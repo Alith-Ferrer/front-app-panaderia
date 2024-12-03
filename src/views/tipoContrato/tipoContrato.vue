@@ -1,7 +1,7 @@
 <template>
   <LayoutMain>
       <template #slotLayout>
-          <Header :titulo="'Tipos de Contrato'" :tituloBoton="'Crear Tipo de Contrato  +'" :abrir="abrirFormulario" />
+          <Header :titulo="'Tipos de Contrato'" :tituloBoton="'Crear Tipo de Contrato'" :abrir="abrirFormulario" />
 
           <Formulario :titulo="'Gestión de Tipos de Contrato'" v-model:is-open="mostrarFormulario" :is-edit="editandoFormulario"
               @save="guardarDatos" @update="actualizarDatos">

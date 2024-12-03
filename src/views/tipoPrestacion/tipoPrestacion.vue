@@ -1,7 +1,7 @@
 <template>
   <LayoutMain>
       <template #slotLayout>
-          <Header :titulo="'Tipos de Prestación'" :tituloBoton="'Crear Tipo de Prestación  +'" :abrir="abrirFormulario" />
+          <Header :titulo="'Tipos de Prestación'" :tituloBoton="'Crear Tipo de Prestación'" :abrir="abrirFormulario" />
 
           <Formulario :titulo="'Gestión de Tipos de Prestación'" v-model:is-open="mostrarFormulario" :is-edit="editandoFormulario"
               @save="guardarDatos" @update="actualizarDatos">

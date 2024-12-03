@@ -5,17 +5,17 @@
       <el-input v-model="formulario.Tipo_contrato_laboral" />
     </el-form-item>
     <el-form-item label="Fecha de Inicio" prop="Fecha_inicio_contrato_laboral">
-      <el-date-picker v-model="formulario.Fecha_inicio_contrato_laboral" type="date" placeholder="Seleccione la fecha de inicio" />
+      <el-date-picker v-model="formulario.Fecha_inicio_contrato_laboral" type="date" value-format="YYYY-MM-DD" placeholder="Seleccione la fecha de inicio" />
     </el-form-item>
     <el-form-item label="Fecha de Fin" prop="Fecha_fin_contrato_laboral">
-      <el-date-picker v-model="formulario.Fecha_fin_contrato_laboral" type="date" placeholder="Seleccione la fecha de fin" />
+      <el-date-picker v-model="formulario.Fecha_fin_contrato_laboral" type="date" value-format="YYYY-MM-DD" placeholder="Seleccione la fecha de fin" />
     </el-form-item>
     <el-form-item label="Salario" prop="Salario_contrato_laboral">
       <el-input v-model="formulario.Salario_contrato_laboral" />
     </el-form-item>
     <el-form-item label="Empleado" prop="id_empleado">
       <el-select v-model="formulario.id_empleado" placeholder="Seleccione un empleado">
-        <el-option v-for="empleado in empleados" :key="empleado.id" :label="empleado.nombre" :value="empleado.id" />
+        <el-option v-for="empleado in empleado" :key="empleado.id" :label="empleado.nombre" :value="empleado.id" />
       </el-select>
     </el-form-item>
   </el-form>
@@ -25,7 +25,7 @@
 import { onMounted, reactive, ref, watch } from 'vue'
 
 const props = defineProps({
-  empleados: {
+  empleado: {
     type: Array,
     required: true,
   },

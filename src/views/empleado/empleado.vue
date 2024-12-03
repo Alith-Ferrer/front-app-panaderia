@@ -15,7 +15,7 @@
         </template>
       </Formulario>
 
-      <el-table :data="empleados" stripe style="width: 100%">
+      <el-table :data="empleado" stripe style="width: 100%">
         <el-table-column prop="Nombre_empleado" label="Nombre del Empleado" />
         <el-table-column prop="Fecha_ingreso" label="Fecha de Ingreso" />
         <el-table-column prop="Codigo_empleado" label="Código del Empleado" />
@@ -45,7 +45,7 @@ const mostrarFormulario = ref(false);
 const editandoFormulario = ref(false);
 const formRef = ref();
 const datagetDataByid = ref();
-const empleados = ref([]);
+const empleado = ref([]);
 
 const abrirFormulario = () => {
   mostrarFormulario.value = true;
@@ -186,7 +186,7 @@ const datosEmpleado = async () => {
   try {
     axios.get(url)
       .then(function (response) {
-        empleados.value = response.data.result;
+        empleado.value = response.data.result;
       })
       .catch(function (error) {
         console.log(error);
@@ -196,13 +196,13 @@ const datosEmpleado = async () => {
   }
 };
 
-const obtenerEmpleados = async () => {
+const getEmpleado = async () => {
   const url = 'http://127.0.0.1:8000/api/empleado/getData';
 
   try {
     axios.get(url)
       .then(function (response) {
-        empleados.value = response.data.result;
+        empleado.value = response.data.result;
       })
       .catch(function (error) {
         console.log(error);
@@ -214,6 +214,6 @@ const obtenerEmpleados = async () => {
 
 onMounted(() => {
   datosEmpleado();
-  obtenerEmpleados();
+  getEmpleado();
 });
 </script>

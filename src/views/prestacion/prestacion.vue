@@ -1,7 +1,7 @@
 <template>
   <LayoutMain>
       <template #slotLayout>
-          <Header :titulo="'Prestaciones Sociales'" :tituloBoton="'Crear Prestación  +'" :abrir="abrirFormulario" />
+          <Header :titulo="'Prestaciones Sociales'" :tituloBoton="'Crear Prestación'" :abrir="abrirFormulario" />
 
           <Formulario :titulo="'Gestión de Prestaciones Sociales'" v-model:is-open="mostrarFormulario" :is-edit="editandoFormulario"
               @save="guardarDatos" @update="actualizarDatos">

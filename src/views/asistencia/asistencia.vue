@@ -9,7 +9,7 @@
           <el-row :gutter="20">
             <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
               <formAsistencia v-model:is-open="mostrarFormulario" :is-edit="editandoFormulario" ref="formRef"
-                              :empleados="empleados" :dataValue="datagetDataByid" />
+                              :empleado="empleado" :dataValue="datagetDataByid" />
             </el-col>
           </el-row>
         </template>
@@ -47,7 +47,7 @@ const editandoFormulario = ref(false);
 const formRef = ref();
 const datagetDataByid = ref();
 const asistencias = ref([]);
-const empleados = ref([]);
+const empleado = ref([]);
 
 const abrirFormulario = () => {
   mostrarFormulario.value = true;
@@ -199,13 +199,13 @@ const datosAsistencia = async () => {
   }
 };
 
-const obtenerEmpleados = async () => {
+const getEmpleado = async () => {
   const url = 'http://127.0.0.1:8000/api/empleado/getData';
 
   try {
     axios.get(url)
       .then(function (response) {
-        empleados.value = response.data.result;
+        empleado.value = response.data.result;
       })
       .catch(function (error) {
         console.log(error);
@@ -217,6 +217,6 @@ const obtenerEmpleados = async () => {
 
 onMounted(() => {
   datosAsistencia();
-  obtenerEmpleados();
+  getEmpleado();
 });
 </script>
