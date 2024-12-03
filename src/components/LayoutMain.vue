@@ -21,7 +21,7 @@ import SideBarMenu from './SideBarMenu.vue';
 export default {
   name: 'LayoutMain',
   components: {
-    NavBar,
+    Navbar,
     SideBarMenu
   }
 };
