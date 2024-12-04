@@ -1,7 +1,7 @@
 <template>
   <el-container style="height: 100vh;">
     <el-header>
-      <NavBar />
+      <Navbar />
     </el-header>
     <el-container>
       <el-aside width="auto">
@@ -15,13 +15,13 @@
 </template>
 
 <script>
-import NavBar from './NavBar.vue';
+import Navbar from './navbar.vue';
 import SideBarMenu from './SideBarMenu.vue';
 
 export default {
   name: 'LayoutMain',
   components: {
-    NavBar,
+    Navbar,
     SideBarMenu
   }
 };
