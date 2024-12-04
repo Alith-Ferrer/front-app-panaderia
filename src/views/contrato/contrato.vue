@@ -41,7 +41,7 @@ import LayoutMain from '../../components/LayoutMain.vue';
 import Formulario from '../../components/Formulario.vue';
 import Header from '../../components/Header.vue';
 import { Delete, Edit } from "@element-plus/icons-vue"
-import FormContrato from './components/formContrato.vue';
+import FormContrato from './components/formcontrato.vue';
 import { ElMessage, ElMessageBox } from 'element-plus'
 import axios from 'axios';
 
