@@ -1,3 +1,8 @@
+<script>
+import navbar from './navbar.vue';
+import SideBarMenu from './SideBarMenu.vue';
+</script>
+
 <template>
   <el-container style="height: 100vh;">
     <el-header>
@@ -13,16 +18,3 @@
     </el-container>
   </el-container>
 </template>
-
-<script>
-import navbar from './navbar.vue';
-import SideBarMenu from './SideBarMenu.vue';
-
-export default {
-  name: 'LayoutMain',
-  components: {
-    navbar,
-    SideBarMenu
-  }
-};
-</script>
