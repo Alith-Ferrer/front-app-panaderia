@@ -15,13 +15,13 @@
 </template>
 
 <script>
-import Navbar from './navbar.vue';
+import navbar from './navbar.vue';
 import SideBarMenu from './SideBarMenu.vue';
 
 export default {
   name: 'LayoutMain',
   components: {
-    Navbar,
+    navbar,
     SideBarMenu
   }
 };
