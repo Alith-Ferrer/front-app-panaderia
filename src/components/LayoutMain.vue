@@ -1,7 +1,7 @@
 <template>
   <el-container style="height: 100vh;">
     <el-header>
-      <Navbar />
+      <navbar />
     </el-header>
     <el-container>
       <el-aside width="auto">
