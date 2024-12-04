@@ -1,6 +1,7 @@
 <script>
 import navbar from './navbar.vue';
 import SideBarMenu from './SideBarMenu.vue';
+
 </script>
 
 <template>
@@ -18,3 +19,4 @@ import SideBarMenu from './SideBarMenu.vue';
     </el-container>
   </el-container>
 </template>
+
