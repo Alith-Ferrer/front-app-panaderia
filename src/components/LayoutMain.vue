@@ -1,7 +1,12 @@
+<script>
+import navbar from './navbar.vue';
+import SideBarMenu from './SideBarMenu.vue';
+</script>
+
 <template>
   <el-container style="height: 100vh;">
     <el-header>
-      <Navbar />
+      <navbar />
     </el-header>
     <el-container>
       <el-aside width="auto">
@@ -13,16 +18,3 @@
     </el-container>
   </el-container>
 </template>
-
-<script>
-import Navbar from './navbar.vue';
-import SideBarMenu from './SideBarMenu.vue';
-
-export default {
-  name: 'LayoutMain',
-  components: {
-    Navbar,
-    SideBarMenu
-  }
-};
-</script>
